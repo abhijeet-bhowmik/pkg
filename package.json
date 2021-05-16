@@ -1,0 +1,27 @@
+{
+  "name": "dryv.me",
+  "version": "1.0.0",
+  "description": "A Smart Contract for escrowing of pick and drop facility",
+  "main": "main.js",
+  "scripts": {
+    "ganache": "ganache-cli --networkId $npm_package_config_ganache_networkId --allowUnlimitedContractSize --gasLimit $npm_package_config_ganache_gasLimit --gasPrice $npm_package_config_ganache_gasPrice --mnemonic \"$MNEMONIC\"",
+    "migrate-dev": "rm -rf build && truffle migrate --reset --compile-all --network development",
+    "migrate-testnet": "rm -rf build && truffle migrate --reset --compile-all --network ropsten",
+    "start": "concurrently \"npm run ganache\" \"npm run migrate-dev\""
+  },
+  "config": {
+    "ganache": {
+      "networkId": 3431,
+      "gasPrice": 25000000000,
+      "gasLimit": 6500000
+    }
+  },
+  "author": "Abhijeet Bhowmik",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^6.1.0",
+    "ganache-cli": "^6.12.2",
+    "truffle": "^5.3.6",
+    "truffle-hdwallet-provider": "^1.0.17"
+  }
+}
